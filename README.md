@@ -1,4 +1,4 @@
-# Sherlock TV, buscador de series
+# Sherlock TV, buscador de series 🔍🧐
 
 Módulo 2: Ejercicio de evaluación final **ADALAB**
 Antes de empezar, hay que crear un nuevo repositorio desde GitHub Classroom usando este enlace.

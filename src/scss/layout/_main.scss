@@ -45,6 +45,7 @@
   flex-direction: column;
   align-items: center;
   background-color: $light-color;
+  overflow: scroll;
 }
 
 .series-search-title {
@@ -60,6 +61,14 @@
   border: 2px solid $pink;
   margin-right: 10px;
   font-size: 1.2rem;
+  transition: border-color box-shadow border ease 0.8s;
+  &:hover {
+    border-color: $dark-pink;
+    box-shadow: 0 2px 4px 0 $shadows;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn__search {
@@ -71,8 +80,23 @@
   border-radius: 5px;
   font-size: 1.2rem;
   padding: 4px;
+  transition: background-color box-shadow border ease 0.8s;
+  &:hover {
+    background-color: $pink;
+    box-shadow: 0 2px 4px 0 $shadows;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
 .fa-search {
   font-size: 1rem;
+}
+
+.search-result {
+  margin: 20px 20px;
+  font-size: 1.5rem;
+  color: $dark-pink;
+  font-weight: 400;
 }

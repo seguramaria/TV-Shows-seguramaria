@@ -1,95 +1,49 @@
 'use strict';
+// Creamos una variable con un array vacío
 
-// const ENDPOINT =
-//   'https://beta.adalab.es/ejercicios-extra/js-fetch-arrays-princesas-disney/data/users.json';
+let series = [];
 
-// let users = [
-//   {
-//     name: '',
-//     email: '',
-//     phone: '',
-//     comment: '',
-//     picture: '',
-//   },
-// ];
-
-// // 1º Declaramos la constante donde pintaremos los datos de las princesas:
-
-// let princessList = document.querySelector('.js-user-list');
-
-// // 2º Hacemos fetch a una URL, después .then para pasar a JSON los datos del server operar con ellos. Devolvemos esos datos.
-
-// function getInfoPrincess() {
-//   fetch(ENDPOINT)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       users = data;
-//       printPrincess(users); // Ésta es la función que me pinta los resultados en HTML.
-//     });
-// }
-// getInfoPrincess();
-
-// // 3º Pinto la información de las princesas en HTML.
-
-// function printPrincess(princesses) {
-//   for (const princess of princesses) {
-//     princessList.innerHTML += `<li class="princess"><div class="container2"><h2 class="princess-name">${princess.name} </h2><div class="princess-img-container"><img src="${princess.picture}" class="princess-img"/></div></div><p class="princess-comment">${princess.comment}</p></li>`;
-//   }
-//   addClickListeners();
-// }
-
-// function addClickListeners() {
-//   const princessesLi = document.querySelectorAll('li');
-//   for (let princessLi of princessesLi) {
-//     princessLi.addEventListener('click', selectFavoritePrincess);
-//   }
-// }
-
-// function selectFavoritePrincess(event) {
-//   let favorites = [];
-//   event.currentTarget.classList.toggle('fav');
-
-//   // if (princessLi.classList.contain('fav')) {
-//   //   return favorites.push(princessLi);
-//   //   console.log(favorites);
-//   // }
-// }
-
-// // function addFavoritePrincess() {
-// //   if (princessLi.classList.contain('fav')) {
-// //     return favorites.push(princessLi);
-// //     console.log(favorites);
-// //   }
-// // }
-
-let series = [''];
-
+// Declaramos la función para la búsqueda de series
 function searchTVSeries() {
   let search = document.querySelector('.js-search').value;
-  const URL = `http://api.tvmaze.com/singlesearch/shows?q=${search}`;
+
+  // Hacemos la interpolación de cadenas en la url de la api. Hay que tener cuidado con la búsqueda. Es search, no singlesearch.
+
+  const URL = `http://api.tvmaze.com/search/shows?q=${search}`;
   console.log(URL);
+
   fetch(URL)
     .then((response) => response.json())
-    .then((data) => {
-      series = data;
-      console.log(series);
+    .then((series) => {
+      printSeries(series);
+      // toggleSeriesResults();
     });
-  printSeries();
 }
 
+// Elemento donde vamos a escuchar el evento
 const btn = document.querySelector('.btn__search');
 btn.addEventListener('click', searchTVSeries);
 
-function printSeries() {
+// Función para pintar en el HTML los datos
+function printSeries(series) {
   let ulSeries = '';
   for (const serie of series) {
-    console.log(serie.name);
-    // console.log(serie.image.medium);
-    const searchList = `<li class="serie"><h3 class="serie-name">${serie.name}</h3><div class="serie-img-container"><img class="serie-img" href="${serie.image}" alt="imagen de serie" /></div></li>`;
-    ulSeries += searchList;
-    const seriesList = document.querySelector('.series__list');
-    seriesList.innerHTML = ulContent;
+    if (serie.show.image.medium === null) {
+      const searchList = `<li class="serie"><h3 class="serie-name">${serie.show.name}</h3><div class="serie-img-container"><img class="serie-img" src="./assets/images/retro-tv.webp" alt="serie sin imagen" /></div></li>`;
+      ulSeries += searchList;
+      const seriesList = document.querySelector('.series__list');
+      seriesList.innerHTML = ulSeries;
+    } else {
+      const searchList = `<li class="serie"><h3 class="serie-name">${serie.show.name}</h3><div class="serie-img-container"><img class="serie-img" src="${serie.show.image.medium}" alt="imagen de serie" /></div></li>`;
+      ulSeries += searchList;
+      const seriesList = document.querySelector('.series__list');
+      seriesList.innerHTML = ulSeries;
+    }
   }
 }
+
+// function toggleSeriesResults() {
+//   const searchResult = document.querySelector('.search-result');
+//   console.log(searchResult);
+//   searchResult.classList.remove('hidden');
+// }

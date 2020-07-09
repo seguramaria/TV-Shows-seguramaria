@@ -1,0 +1,20 @@
+.serie {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.serie-name {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: $secondary-color;
+  text-align: center;
+}
+
+.serie-img-container {
+  width: 210px;
+  height: 320px;
+}
+.serie-img {
+  width: 100%;
+}

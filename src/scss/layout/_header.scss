@@ -1,5 +1,13 @@
-.page__header {
-  display: flex;
-  justify-content: space-evenly;
+.header {
+  background-color: $primary-color;
   margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  &__title {
+    color: $light-color;
+    font-size: 3rem;
+    font-family: $font-titles;
+  }
 }

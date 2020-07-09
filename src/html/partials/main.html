@@ -1,6 +1,28 @@
 <main class="page__main">
-  <h2>Aquí tus series favoritas</h2>
-  <p>Aún no has añadido ninguna serie a tu lista</p>
-  <h2>Buscador de series</h2>
-  <ul class="main__list"></ul>
+  <div class="main">
+    <section class="favorite__series-section">
+      <h2 class="favorite__series-title">Tus series favoritas</h2>
+      <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
+
+      <ul>
+        <li class="favorite__series">
+          <h3 class="favorite__series-name"></h3>
+          <div class="favorite__series-img-container">
+            <img class="favorite__series-img" />
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="series-search-section">
+      <h2 class="series-search-title">Buscador de series</h2>
+      <div>
+        <input type="text" placeholder="Sherlock" class="search js-search" />
+        <button type="submit" class="btn__search">
+          <i class="fas fa-search"></i>
+          Buscar
+        </button>
+      </div>
+      <ul class="series__list"></ul>
+    </section>
+  </div>
 </main>

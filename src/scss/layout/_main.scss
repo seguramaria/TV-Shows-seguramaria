@@ -1,0 +1,78 @@
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $light-color;
+}
+
+.page__main {
+  background-image: url('https://cdn.pixabay.com/photo/2016/01/19/16/49/old-tv-1149416_1280.jpg');
+}
+
+// SECCIÓN DE FAVORITOS
+
+.favorite__series-title {
+  font-size: 1.95rem;
+  margin-bottom: 25px;
+  color: $secondary-color;
+}
+.no-series {
+  font-family: $font-main;
+  color: $grey;
+}
+.favorite__series-section {
+  border-right: 4px solid $dark-pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+  height: 100vh;
+  text-align: justify;
+}
+
+// SECCIÓN DE BÚSQUEDA
+
+.series-search-section {
+  // margin-right: 25px;
+  width: 500px;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $light-color;
+}
+
+.series-search-title {
+  font-size: 1.95rem;
+  margin-bottom: 25px;
+  color: $secondary-color;
+}
+
+.search {
+  width: 200px;
+  height: 40px;
+  padding: 5px;
+  border: 2px solid $pink;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.btn__search {
+  width: 120px;
+  height: 50px;
+  background-color: $dark-pink;
+  color: $light-color;
+  border: 1px solid $pink;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 4px;
+}
+
+.fa-search {
+  font-size: 1rem;
+}

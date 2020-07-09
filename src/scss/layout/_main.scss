@@ -4,7 +4,7 @@
   margin: auto;
   padding: 15px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: $light-color;
 }
 
@@ -18,13 +18,15 @@
   font-size: 1.95rem;
   margin-bottom: 25px;
   color: $secondary-color;
+  border-right: 2px solid $dark-pink;
+  border-left: 2px solid $dark-pink;
+  padding: 15px;
 }
 .no-series {
   font-family: $font-main;
   color: $grey;
 }
 .favorite__series-section {
-  border-right: 4px solid $dark-pink;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,13 +47,16 @@
   flex-direction: column;
   align-items: center;
   background-color: $light-color;
-  overflow: scroll;
+  // overflow: scroll;
 }
 
 .series-search-title {
   font-size: 1.95rem;
   margin-bottom: 25px;
   color: $secondary-color;
+  padding: 15px;
+  border-left: 2px solid $dark-pink;
+  border-right: 2px solid $dark-pink;
 }
 
 .search {
@@ -100,3 +105,7 @@
   color: $dark-pink;
   font-weight: 400;
 }
+
+// .js-list-series {
+//   width: 1000px;
+// }

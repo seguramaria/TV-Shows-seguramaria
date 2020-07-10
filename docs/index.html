@@ -32,27 +32,35 @@
         <div class="main">
           <section class="favorite__series-section">
             <h2 class="favorite__series-title">Tus series favoritas</h2>
-            <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
+            <div class="js-list-fav hidden">
+              <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
 
-            <ul>
-              <li class="favorite__series">
-                <h3 class="favorite__series-name"></h3>
-                <div class="favorite__series-img-container">
-                  <img class="favorite__series-img" />
-                </div>
-              </li>
-            </ul>
+              <ul>
+                <li class="favorite__series">
+                  <h3 class="favorite__series-name"></h3>
+                  <div class="favorite__series-img-container">
+                    <img class="favorite__series-img" />
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
+
           <section class="series-search-section">
             <h2 class="series-search-title">Buscador de series</h2>
-            <div>
-              <input type="text" placeholder="Sherlock" class="search js-search" />
-              <button type="submit" class="btn__search">
-                <i class="fas fa-search"></i>
-                Buscar
-              </button>
+            <div class="js-list-series hidden">
+              <div>
+                <input type="text" placeholder="Sherlock" class="search js-search" />
+                <button type="submit" class="btn__search">
+                  <i class="fas fa-search"></i>
+                  Buscar
+                </button>
+              </div>
+              <div class="search-results">
+                <p class="search-results-text hidden">Resultado de la búsqueda</p>
+                <ul class="series__list"></ul>
+              </div>
             </div>
-            <ul class="series__list"></ul>
           </section>
         </div>
       </main>

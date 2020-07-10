@@ -1,26 +1,27 @@
 <main class="page__main">
   <div class="main">
-    <section class="favorite__series-section">
-      <h2 class="favorite__series-title">Tus series favoritas</h2>
-      <div class="js-list-fav hidden">
-        <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
+  
 
-        <ul>
-          <li class="favorite__series">
-            <h3 class="favorite__series-name"></h3>
-            <div class="favorite__series-img-container">
-              <img class="favorite__series-img" />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div class="series-section-container">
+      <section class="favorite__series-section">
+        <div class="js-list-fav hidden">
+          <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
 
-    <section class="series-search-section">
-      <h2 class="series-search-title">Buscador de series</h2>
-      <div class="js-list-series hidden">
-        <div>
-          <input type="text" placeholder="Sherlock" class="search js-search" />
+          <ul>
+            <li class="favorite__series">
+              <h3 class="favorite__series-name"></h3>
+              <div class="favorite__series-img-container">
+                <img class="favorite__series-img" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="series-search-section" >
+        <div class="js-list-series hidden">
+          <label for="search-input" class="label-input">Busca aquí tu serie y márcala si es tu favorita</label> <br><br>
+          <input id="search-input" type="text" placeholder="Sherlock" class="search js-search" />
           <button type="submit" class="btn__search">
             <i class="fas fa-search"></i>
             Buscar
@@ -31,6 +32,7 @@
           <ul class="series__list"></ul>
         </div>
       </div>
-    </section>
+      </section>
+    </div>
   </div>
 </main>

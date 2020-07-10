@@ -6,11 +6,12 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  color: $secondary-color;
 }
 .serie-name {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: $secondary-color;
+
   text-align: center;
 }
 

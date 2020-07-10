@@ -39,7 +39,6 @@
 // SECCIÓN DE BÚSQUEDA
 
 .series-search-section {
-  // margin-right: 25px;
   width: 500px;
   padding: 20px;
   height: 100vh;
@@ -99,13 +98,9 @@
   font-size: 1rem;
 }
 
-.search-result {
+.search-results-text {
   margin: 20px 20px;
   font-size: 1.5rem;
   color: $dark-pink;
   font-weight: 400;
 }
-
-// .js-list-series {
-//   width: 1000px;
-// }

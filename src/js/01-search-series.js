@@ -1,18 +1,26 @@
 'use strict';
+let ulSeries = '';
 
 // Declaramos la función para la búsqueda de series
 function searchTVSeries() {
-  let search = document.querySelector('.js-search').value;
+  let inputSearch = document.querySelector('.js-search');
+  let search = inputSearch.value.split(' ').join('+'); // Para poder buscar series con espacios
 
   // Hacemos la interpolación de cadenas en la url de la api. Hay que tener cuidado con la búsqueda. Es search, no singlesearch.
-
   const URL = `http://api.tvmaze.com/search/shows?q=${search}`;
 
   fetch(URL)
     .then((response) => response.json())
     .then((series) => {
       printSeries(series);
+      // deleteSearch();
       // toggleSeriesResults();
+
+      // .then((data) => {
+      //   let ulSeries = [];
+      //   for (let i = 0; i < data.length; i++) {
+      //     ulSeries.push(data[i]);
+      //   }
     });
 }
 
@@ -22,11 +30,16 @@ btn.addEventListener('click', searchTVSeries);
 
 // Función para pintar en el HTML los datos
 function printSeries(series) {
-  for (const serie of series) {
-    let ul = document.querySelector('.series__list');
+  let ulSeries = document.querySelector('.series__list');
+  const searchResults = document.querySelector('.search-results');
+  let textResult = document.createElement('p');
+  textResult.appendChild(document.createTextNode('Resultado de la búsqueda'));
+  textResult.setAttribute('class', 'search-results-text');
+  searchResults.appendChild(textResult);
 
+  for (const serie of series) {
     let seriesList = document.createElement('li');
-    ul.appendChild(seriesList);
+    ulSeries.appendChild(seriesList);
     seriesList.setAttribute('class', 'serie');
     seriesList.addEventListener('click', selectFavoriteSerie);
 
@@ -36,39 +49,29 @@ function printSeries(series) {
     seriesList.appendChild(nameSerie);
 
     let imgSerie = document.createElement('img');
-    imgSerie.src = serie.show.image.medium;
+    const defaultImg = 'https://via.placeholder.com/210x295/ffffff/666666/?';
+    let serieImg = serie.show.image.medium;
+    imgSerie.src = serieImg || defaultImg;
+    // imgSerie.setAttribute('src', serieImg || defaultImg);
     imgSerie.alt = 'Imagen de serie';
     imgSerie.setAttribute('class', 'serie-img');
     seriesList.appendChild(imgSerie);
   }
 }
 
+// BORRAR EL RESULTADO DE LA BÚSQUEDA
+function deleteSearch() {
+  if (search.value === '') {
+    let ulSeries = '';
+  } else {
+  }
+}
+
 // FUNCIÓN PARA AÑADIR LA CLASE FAV A TODAS LAS SERIES FAVORITAS
 
 function selectFavoriteSerie(event) {
-  event.currentTarget.classList.toggle('fav');
+  event.currentTarget.classList.add('fav');
 }
-
-// if (serie.show.image.medium === null) {
-//   let ul = document.querySelector('.series__list');
-
-//   let seriesList = document.createElement('li');
-//   ul.appendChild(seriesList);
-//   seriesList.setAttribute('class', 'serie');
-//   seriesList.addEventListener('click', selectFavoriteSerie);
-
-//   let nameSerie = document.createElement('h3');
-//   nameSerie.appendChild(document.createTextNode(serie.show.name));
-//   nameSerie.setAttribute('class', 'serie-name');
-//   seriesList.appendChild(nameSerie);
-
-//   let imgSerie = document.createElement('img');
-//   imgSerie.src =
-//     'https://static.vecteezy.com/system/resources/previews/000/225/950/original/retro-television-set-vector.jpg';
-//   imgSerie.alt = 'Imagen de serie';
-//   imgSerie.setAttribute('class', 'serie-img');
-//   seriesList.appendChild(imgSerie);
-// }
 
 // function toggleSeriesResults() {
 //   const searchResult = document.querySelector('.search-result');

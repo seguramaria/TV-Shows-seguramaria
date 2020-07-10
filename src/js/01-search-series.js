@@ -1,5 +1,4 @@
 'use strict';
-let ulSeries = '';
 
 // Declaramos la función para la búsqueda de series
 function searchTVSeries() {
@@ -13,14 +12,6 @@ function searchTVSeries() {
     .then((response) => response.json())
     .then((series) => {
       printSeries(series);
-      // deleteSearch();
-      // toggleSeriesResults();
-
-      // .then((data) => {
-      //   let ulSeries = [];
-      //   for (let i = 0; i < data.length; i++) {
-      //     ulSeries.push(data[i]);
-      //   }
     });
 }
 
@@ -31,12 +22,8 @@ btn.addEventListener('click', searchTVSeries);
 // Función para pintar en el HTML los datos
 function printSeries(series) {
   let ulSeries = document.querySelector('.series__list');
-  const searchResults = document.querySelector('.search-results');
-  let textResult = document.createElement('p');
-  textResult.appendChild(document.createTextNode('Resultado de la búsqueda'));
-  textResult.setAttribute('class', 'search-results-text');
-  searchResults.appendChild(textResult);
-
+  ulSeries.innerHTML = '';
+  showSeriesResults();
   for (const serie of series) {
     let seriesList = document.createElement('li');
     ulSeries.appendChild(seriesList);
@@ -50,31 +37,25 @@ function printSeries(series) {
 
     let imgSerie = document.createElement('img');
     const defaultImg = 'https://via.placeholder.com/210x295/ffffff/666666/?';
-    let serieImg = serie.show.image.medium;
-    imgSerie.src = serieImg || defaultImg;
-    // imgSerie.setAttribute('src', serieImg || defaultImg);
+    let serieImg = serie.show.image;
+    if (serieImg === null) {
+      imgSerie.src = defaultImg;
+    } else {
+      imgSerie.src = serieImg.medium;
+    }
     imgSerie.alt = 'Imagen de serie';
     imgSerie.setAttribute('class', 'serie-img');
     seriesList.appendChild(imgSerie);
   }
 }
 
-// BORRAR EL RESULTADO DE LA BÚSQUEDA
-function deleteSearch() {
-  if (search.value === '') {
-    let ulSeries = '';
-  } else {
-  }
+// FUNCIÓN PARA MOSTRAR LOS RESULTADOS
+function showSeriesResults() {
+  const searchResult = document.querySelector('.search-results-text');
+  searchResult.classList.remove('hidden');
 }
 
 // FUNCIÓN PARA AÑADIR LA CLASE FAV A TODAS LAS SERIES FAVORITAS
-
 function selectFavoriteSerie(event) {
   event.currentTarget.classList.add('fav');
 }
-
-// function toggleSeriesResults() {
-//   const searchResult = document.querySelector('.search-result');
-//   console.log(searchResult);
-//   searchResult.classList.remove('hidden');
-// }

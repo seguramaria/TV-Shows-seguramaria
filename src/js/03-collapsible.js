@@ -6,8 +6,8 @@ function showCollapsible(event) {
   const seriesSection = document.querySelector('.js-list-series');
   const favTitle = document.querySelector('.favorite__series-title');
   const seriesTitle = document.querySelector('.series-search-title');
-  const mainDocument = document.querySelector('.page__main');
-  const headerTitle = document.querySelector('.header');
+
+  const headerTitle = document.querySelector('.header__title');
 
   if (event.target === favTitle) {
     favSection.classList.remove('hidden');

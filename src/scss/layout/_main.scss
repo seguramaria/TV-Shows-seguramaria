@@ -3,7 +3,6 @@
   max-width: 1200px;
   margin: auto;
   padding: 15px;
-
   background-color: $light-color;
 }
 
@@ -25,6 +24,7 @@
   border-right: 2px solid $dark-pink;
   border-left: 2px solid $dark-pink;
   padding: 15px;
+  cursor: pointer;
 }
 .no-series {
   font-family: $font-main;
@@ -75,6 +75,7 @@
   padding: 15px;
   border-left: 2px solid $dark-pink;
   border-right: 2px solid $dark-pink;
+  cursor: pointer;
 }
 
 .search {
@@ -109,6 +110,8 @@
   border-radius: 5px;
   font-size: 1.2rem;
   padding: 4px;
+  cursor: pointer;
+
   transition: background-color box-shadow border ease 0.8s;
   &:hover {
     background-color: $pink;

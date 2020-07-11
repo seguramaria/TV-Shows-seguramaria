@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sherlock TV</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap"
@@ -35,27 +35,26 @@
 
       <main class="page__main">
         <div class="main">
-        
-
+          
+          
           <div class="series-section-container">
             <section class="favorite__series-section">
               <div class="js-list-fav hidden">
-                <h3 class="no-series">Aún no has añadido ninguna serie a tu lista</h3>
-                <p class="no-series-text">Para hacerlo, busca la serie que más te guste y clica en ella.</p>
-      <div class="no-series-img-container">
-        <img class="no-series-img" src="./assets/images/no-series-img.gif" alt="Dibujo de televisión">
-      </div>
-                <ul>
-                  <li class="favorite__series">
-                    <h3 class="favorite__series-name"></h3>
-                    <div class="favorite__series-img-container">
-                      <img class="favorite__series-img" />
-                    </div>
-                  </li>
-                </ul>
+                <div class="no-series-container hidden">
+                  <h3 class="no-series">Aún no has añadido ninguna serie a tu lista</h3>
+                  <p class="no-series-text">Para hacerlo, busca la serie que más te guste y clica en ella.</p>
+               
+                
+                <div class="no-series-img-container">
+                  <img class="no-series-img" src="./assets/images/no-serie-img2.png" alt="Dibujo de televisión">
+                </div>
+              </div>
+                <div class="series__list-fav">
+       <!-- Aquí se muestra el listado de series favoritas -->
+                </div>
               </div>
             </section>
-
+            
             <section class="series-search-section" >
               <div class="js-list-series hidden">
                 <label for="search-input" class="label-input">Busca aquí tu serie y márcala si es tu favorita</label> <br><br>
@@ -66,18 +65,19 @@
                 </button>
               </div>
               <div class="search-results">
-                <p class="search-results-text hidden">Resultado de la búsqueda</p>
-              <div class="ul-results">
-                <ul class="series__list"></ul>
-              </div>
+                <p class="search-results-text hidden">Resultado de la búsqueda: </p>
+
+            
+                <div class="series__list">
+                     <!-- Aquí se muestra el listado de la búsqueda -->
+                </div>
                 
               </div>
             </div>
-            </section>
-          </div>
+          </section>
         </div>
+      </div>
       </main>
-
 
       <footer class="page__footer">
         <small>

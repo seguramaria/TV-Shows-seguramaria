@@ -25,32 +25,41 @@
       <header class="page-header">
         <div class="header">
           <h1 class="header__title">Sherlock TV</h1>
+
+          <div class="sections-tittles">
+            <h2 class="favorite__series-title">Tus series favoritas</h2>
+            <h2 class="series-search-title">Buscador de series</h2>
+          </div>
         </div>
       </header>
 
       <main class="page__main">
         <div class="main">
-          <section class="favorite__series-section">
-            <h2 class="favorite__series-title">Tus series favoritas</h2>
-            <div class="js-list-fav hidden">
-              <p class="no-series">Aún no has añadido ninguna serie a tu lista</p>
+        
 
-              <ul>
-                <li class="favorite__series">
-                  <h3 class="favorite__series-name"></h3>
-                  <div class="favorite__series-img-container">
-                    <img class="favorite__series-img" />
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <div class="series-section-container">
+            <section class="favorite__series-section">
+              <div class="js-list-fav hidden">
+                <h3 class="no-series">Aún no has añadido ninguna serie a tu lista</h3>
+                <p class="no-series-text">Para hacerlo, busca la serie que más te guste y clica en ella.</p>
+      <div class="no-series-img-container">
+        <img class="no-series-img" src="./assets/images/no-series-img.gif" alt="Dibujo de televisión">
+      </div>
+                <ul>
+                  <li class="favorite__series">
+                    <h3 class="favorite__series-name"></h3>
+                    <div class="favorite__series-img-container">
+                      <img class="favorite__series-img" />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
 
-          <section class="series-search-section">
-            <h2 class="series-search-title">Buscador de series</h2>
-            <div class="js-list-series hidden">
-              <div>
-                <input type="text" placeholder="Sherlock" class="search js-search" />
+            <section class="series-search-section" >
+              <div class="js-list-series hidden">
+                <label for="search-input" class="label-input">Busca aquí tu serie y márcala si es tu favorita</label> <br><br>
+                <input id="search-input" type="text" placeholder="Sherlock" class="search js-search" />
                 <button type="submit" class="btn__search">
                   <i class="fas fa-search"></i>
                   Buscar
@@ -58,10 +67,14 @@
               </div>
               <div class="search-results">
                 <p class="search-results-text hidden">Resultado de la búsqueda</p>
+              <div class="ul-results">
                 <ul class="series__list"></ul>
               </div>
+                
+              </div>
             </div>
-          </section>
+            </section>
+          </div>
         </div>
       </main>
 

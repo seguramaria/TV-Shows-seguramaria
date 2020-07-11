@@ -126,6 +126,10 @@ function getSerie(idSerie) {
 
 function renderFavSeries(favSeries) {
   sectionSeriesFav.innerHTML = '';
+
+  const msgNoSeriesFav = document.querySelector('.no-series-container');
+  msgNoSeriesFav.classList.add('hidden');
+
   // por cada id que contenga favoritos le paso el id a la función getSerie que me devolverá el objeto con ese id
   for (let favSerie of favSeries) {
     let serie = getSerie(favSerie);
@@ -138,6 +142,10 @@ function renderFavSeries(favSeries) {
       seriesListFav.setAttribute('class', 'serie-fav');
       seriesListFav.setAttribute('id', `${serie.id}`);
       seriesListFav.addEventListener('click', selectFavoriteSerie); //AQUÍ LLAMARÉ A LA FUNCIÓN DE RESET DE FAVS
+      let btnResetfav = document.createElement('button');
+      btnResetfav.appendChild(document.createTextNode('X'));
+      btnResetfav.setAttribute('class', 'btn-reset');
+      seriesListFav.appendChild(btnResetfav);
 
       let nameSerieFav = document.createElement('h3');
       nameSerieFav.appendChild(document.createTextNode(serie.name));

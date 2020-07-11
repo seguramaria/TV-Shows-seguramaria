@@ -1,9 +1,11 @@
+// MAIN DE LA PÁGINA
 .main {
   width: 100%;
   max-width: 1200px;
   margin: auto;
   padding: 15px;
   background-color: $light-color;
+  min-height: 100vh;
 }
 
 .page__main {
@@ -15,6 +17,7 @@
   justify-content: flex-start;
   align-items: center;
 }
+
 // SECCIÓN DE FAVORITOS
 
 .favorite__series-title {
@@ -26,6 +29,8 @@
   padding: 15px;
   cursor: pointer;
 }
+
+//Cuando no hay ninguna serie en favoritos
 .no-series {
   font-family: $font-main;
   font-size: 1.5rem;
@@ -54,14 +59,12 @@
   text-align: justify;
 }
 
-// SECCIÓN DE BÚSQUEDA
-
-.series-search-section {
-  padding: 20px;
-
-  padding: 10px 30px;
-  background-color: $light-color;
+.series__list-fav {
+  display: flex;
+  flex-wrap: wrap;
 }
+
+// SECCIÓN DE BÚSQUEDA
 
 .series-search-title {
   font-size: 1.95rem;
@@ -71,6 +74,16 @@
   border-left: 2px solid $dark-pink;
   border-right: 2px solid $dark-pink;
   cursor: pointer;
+}
+
+.series-search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px;
+  text-align: justify;
+  background-color: $light-color;
 }
 
 .search {
@@ -131,7 +144,7 @@
 
 .series__list {
   display: flex;
-  height: 100vh;
 
+  justify-content: center;
   flex-wrap: wrap;
 }

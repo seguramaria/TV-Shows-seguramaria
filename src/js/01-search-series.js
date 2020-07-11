@@ -90,7 +90,7 @@ function selectFavoriteSerie(event) {
 
     let serie = getSerie(indexSerie);
     favSeries.push(serie);
-
+    renderFavSeries();
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
   } else {
     alert(

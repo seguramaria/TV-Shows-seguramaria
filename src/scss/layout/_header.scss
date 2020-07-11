@@ -10,9 +10,10 @@
   justify-content: center;
   flex-direction: column;
   padding: 30px;
+
   &__title {
     color: $light-color;
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: $font-titles;
   }
 }

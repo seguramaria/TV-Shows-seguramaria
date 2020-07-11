@@ -129,7 +129,9 @@
   font-weight: 400;
 }
 
-.series-list {
-  display: flex !important;
+.series__list {
+  display: flex;
+  height: 100vh;
+
   flex-wrap: wrap;
 }

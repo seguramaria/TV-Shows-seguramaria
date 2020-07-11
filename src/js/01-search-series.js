@@ -11,12 +11,14 @@ function getsearchSeries() {
   let inputSearch = document.querySelector('.js-search');
   let search = inputSearch.value;
   const URL = `http://api.tvmaze.com/search/shows?q=${search}`;
+  series = [];
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
       for (const serie of data) {
         series.push(serie.show);
       }
+
       paintSeries(series); //Pintar resultados de la búsqueda
     });
 }
@@ -29,23 +31,29 @@ btn.addEventListener('click', getsearchSeries);
 
 function paintSeries(series) {
   sectionSeries.innerHTML = '';
-
   console.log(sectionSeries);
 
   showSeriesResults(); //Llamamos a la función que muestra un texto cuando aparecen resultados nuevos.
 
   // serie es el item de nuestro array
   for (const serie of series) {
-    let seriesList = document.createElement('article');
-    sectionSeries.appendChild(seriesList);
-    seriesList.setAttribute('class', 'serie');
-    seriesList.setAttribute('id', `${serie.id}`);
-    seriesList.addEventListener('click', selectFavoriteSerie); //Escuchamos el evento en el click sobre el artículo de la serie, para cnvertirla en favorita.
+    let seriesElement = document.createElement('article');
+    sectionSeries.appendChild(seriesElement);
+    seriesElement.setAttribute('class', 'serie');
+    seriesElement.setAttribute('id', `${serie.id}`);
+    console.log(favSeries);
+    console.log(serie.id);
+    if (favSeries.includes(serie.id)) {
+      //método para convertir el Id que es un número en cadena, ya que así es como está incluido en el array de favSeries y sin convertirlo no lo identifica.
+      seriesElement.classList.add('fav'); //incluye la clase fav, para que aquellas series que estén en el array de favSeries aparezcan con background-color
+    }
+
+    seriesElement.addEventListener('click', selectFavoriteSerie); //Escuchamos el evento en el click sobre el artículo de la serie, para cnvertirla en favorita.
 
     let nameSerie = document.createElement('h3');
     nameSerie.appendChild(document.createTextNode(serie.name));
     nameSerie.setAttribute('class', 'serie-name');
-    seriesList.appendChild(nameSerie);
+    seriesElement.appendChild(nameSerie);
 
     let imgSerie = document.createElement('img');
     const defaultImg = './assets/images/default-img.png';
@@ -57,7 +65,7 @@ function paintSeries(series) {
     }
     imgSerie.alt = 'Imagen de serie';
     imgSerie.setAttribute('class', 'serie-img');
-    seriesList.appendChild(imgSerie);
+    seriesElement.appendChild(imgSerie);
   }
 }
 
@@ -69,18 +77,22 @@ function showSeriesResults() {
 
 // FUNCIÓN PARA GUARDAR TODAS LAS SERIES FAVORITAS
 function selectFavoriteSerie(event) {
-  const index = event.currentTarget.id;
+  const indexSerie = parseInt(event.currentTarget.id); //Agregamos los elementos al array, con un parseInt para que se incluyan como números y no como cadenas. Así luego podremos identificarlos para que cuando carguemos los resultados de una búsqueda,  incluyan el color que hemos predeterminado para los favoritos.
 
-  if (favSeries.indexOf(index) === -1) {
+  if (!favSeries.includes(indexSerie)) {
     //El método indexOf() busca un elemento dentro de un array y nos devuelve la posición (o índice que es lo mismo) si lo encuentra. Si no lo encuentra nos devuelve -1. Nos sirve para buscar elementos dentro de un array.
 
     event.currentTarget.classList.add('fav');
-    favSeries.push(index); //Agregamos los elementos al array
+    favSeries.push(indexSerie);
 
     // setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
+    console.log(favSeries);
     renderFavSeries(favSeries); //llamo a la función que pinta las series favoritas
   } else {
-    alert('No necesitas marcarla como favorita, ya está en tu lista 😉');
+    alert(
+      `No necesitas marcarla como favorita, ya está en tu lista 😉
+      Puedes borrarla en el apartado de favoritos`
+    );
   }
 }
 
@@ -128,13 +140,13 @@ function renderFavSeries(favSeries) {
       seriesListFav.addEventListener('click', selectFavoriteSerie); //AQUÍ LLAMARÉ A LA FUNCIÓN DE RESET DE FAVS
 
       let nameSerieFav = document.createElement('h3');
-      nameSerieFav.appendChild(document.createTextNode(serie.show.name));
+      nameSerieFav.appendChild(document.createTextNode(serie.name));
       nameSerieFav.setAttribute('class', 'serie-name-fav');
       seriesListFav.appendChild(nameSerieFav);
 
       let imgSerieFav = document.createElement('img');
       const defaultImg = './assets/images/default-img.png';
-      let serieImgFav = serie.show.image;
+      let serieImgFav = serie.image;
       if (serieImgFav === null) {
         imgSerieFav.src = defaultImg;
       } else {

@@ -3,10 +3,14 @@ $font-main: 'Roboto', sans-serif;
 $font-titles: 'Roboto Slab', serif;
 
 // colors
-$primary-color: #27201a;
+$primary-color: #000;
 $secondary-color: #433931;
-$grey: #76695d;
+$grey: rgb(25, 25, 25);
 $light-color: #ffffff;
-$dark-pink: #8b5e47;
-$pink: #d29b7e;
+$dark-pink: #e50914;
+$pink: #d6ccc3;
 $shadows: rgba(0, 0, 0, 0.5);
+
+$red: #e50914;
+// -webkit-linear-gradient(top,#e50914,#db0510);
+$black: #000;

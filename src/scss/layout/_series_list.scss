@@ -1,29 +1,38 @@
 .serie {
-  margin-top: 15px;
-  padding: 10px;
+  margin: 15px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: $secondary-color;
+  color: $primary-color;
+  border-radius: 15px;
+  height: 310px;
+  transition: box-shadow ease 0.8s;
+  &:hover {
+    box-shadow: 3px 2px 4px 3px $shadows;
+  }
 }
 .serie-name {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-
+  font-size: 1.1rem;
+  padding: 8px;
+  margin-top: 10px;
   text-align: center;
+  max-width: 190px;
+
+  text-overflow: inherit;
 }
 
 .serie-img {
-  width: 210px;
-  height: 320px;
-  border-radius: 10px;
+  width: 190px;
+  height: 260px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 // CAMBIOS AL SELECCIONAR COMO FAVORITA UNA SERIE
 
 .fav {
-  background-color: $pink;
+  background-color: $red;
   color: $light-color;
   box-shadow: 0 2px 4px 0 $shadows;
   border-radius: 15px;
@@ -32,36 +41,46 @@
 // SERIES EN SECCIÓN DE FAVORITOS
 
 .serie-fav {
-  margin-top: 15px;
-  padding: 10px;
+  margin: 15px;
+  // padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: $pink;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark-pink;
   color: $light-color;
   box-shadow: 0 2px 4px 0 $shadows;
   border-radius: 15px;
+  height: 255px;
+  text-overflow: ellipse;
+  transition: box-shadow ease 0.8s;
+  &:hover {
+    box-shadow: 3px 2px 4px 3px $shadows;
+  }
 }
 .serie-name-fav {
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-size: 0.8rem;
+  padding: 5px;
   text-align: center;
+  max-width: 140px;
+  min-height: 50px;
 }
 
 .btn-reset {
   border: 1px solid $secondary-color;
-  border-radius: 10px;
-  height: 20px;
-  width: 20px;
+  border-radius: 8px;
+  height: 16px;
+  width: 16px;
   font-family: sans-serif;
   background-color: #ebccbc;
   color: $primary-color;
   box-shadow: 0 2px 4px 0 $shadows;
   margin-bottom: 10px;
+  font-size: 0.5rem;
   transition: color background-color border ease 0.8s;
   &:hover {
     color: $light-color;
-    background-color: $dark-pink;
+    background-color: grey;
     box-shadow: 0 2px 4px 0 $shadows;
   }
   &:focus {
@@ -70,7 +89,8 @@
 }
 
 .serie-img-fav {
-  width: 160px;
-  height: 270px;
-  border-radius: 10px;
+  width: 140px;
+  height: 190px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }

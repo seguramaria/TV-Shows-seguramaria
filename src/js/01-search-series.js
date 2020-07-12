@@ -24,7 +24,12 @@ function getsearchSeries() {
 
 // Elemento donde vamos a escuchar el evento de la búsqueda
 const btn = document.querySelector('.btn__search');
-btn.addEventListener('click', getsearchSeries);
+btn.addEventListener('click', handlerClickSearch);
+
+function handlerClickSearch(event) {
+  event.preventDefault();
+  getsearchSeries();
+}
 
 // Función para pintar en el HTML los datos
 

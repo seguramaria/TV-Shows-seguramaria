@@ -47,7 +47,6 @@ function paintSeries(series) {
     seriesElement.setAttribute('id', `${serie.id}`);
 
     if (favSeriesId.includes(serie.id)) {
-      //método para convertir el Id que es un número en cadena, ya que así es como está incluido en el array de favSeries y sin convertirlo no lo identifica.
       seriesElement.classList.add('fav'); //incluye la clase fav, para que aquellas series que estén en el array de favSeries aparezcan con background-color
     }
     seriesElement.addEventListener('click', selectFavoriteSerie); //Escuchamos el evento en el click sobre el artículo de la serie, para convertirla en favorita.
@@ -137,23 +136,19 @@ function getSerie(serieId) {
 function renderFavSeries() {
   sectionSeriesFav.innerHTML = '';
 
-  const msgNoSeriesFav = document.querySelector('.no-series-container');
-  msgNoSeriesFav.classList.add('hidden');
-
   // por cada id que contenga favoritos le paso el id a la función getSerie que me devolverá el objeto con ese id
   for (let favSerie of favSeries) {
     // ahora ya puedo ver que si existe ese objeto lo añado a mi sección
     if (favSerie) {
-      console.log(favSerie);
       let seriesListFav = document.createElement('article');
       sectionSeriesFav.appendChild(seriesListFav);
       seriesListFav.setAttribute('class', 'serie-fav');
       seriesListFav.setAttribute('id', `${favSerie.id}`);
       seriesListFav.addEventListener('click', selectFavoriteSerie); //AQUÍ LLAMARÉ A LA FUNCIÓN DE RESET DE FAVS
-      let btnResetfav = document.createElement('button');
-      btnResetfav.appendChild(document.createTextNode('X'));
-      btnResetfav.setAttribute('class', 'btn-reset');
-      seriesListFav.appendChild(btnResetfav);
+      let btnDeleteFav = document.createElement('button');
+      btnDeleteFav.appendChild(document.createTextNode('X'));
+      btnDeleteFav.setAttribute('class', 'btn-delete');
+      seriesListFav.appendChild(btnDeleteFav);
 
       let nameSerieFav = document.createElement('h3');
       nameSerieFav.appendChild(document.createTextNode(favSerie.name));
@@ -174,5 +169,15 @@ function renderFavSeries() {
     }
   }
 }
-renderFavSeries(); //llamo a la función que pinta las series favoritas
-// getsearchSeries();
+
+// RESET ALL
+const btnResetAll = document.querySelector('.btn-reset-all');
+function clearLocalstorage() {
+  localStorage.clear('favSeries');
+  favSeries = [];
+  renderFavSeries();
+  paintSeries(series);
+}
+btnResetAll.addEventListener('click', clearLocalstorage);
+
+renderFavSeries(); //llamo a la función que pinta las series favoritas al arrancar la página

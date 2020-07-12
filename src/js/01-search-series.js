@@ -87,6 +87,7 @@ function addClickListeners() {
 // FUNCIÓN PARA GUARDAR TODAS LAS SERIES FAVORITAS
 function selectFavoriteSerie(event) {
   const indexSerie = parseInt(event.currentTarget.id); //Agregamos los elementos al array, con un parseInt para que se incluyan como números y no como cadenas. Así luego podremos identificarlos para que cuando carguemos los resultados de una búsqueda,  incluyan el color que hemos predeterminado para los favoritos.
+  const indexBtn = parseInt(event.target.id);
   const favSeriesId = favSeries.map((serie) => serie.id);
 
   if (!favSeriesId.includes(indexSerie)) {
@@ -94,14 +95,22 @@ function selectFavoriteSerie(event) {
 
     let serie = getSerie(indexSerie);
     favSeries.push(serie);
-    renderFavSeries();
+    renderFavSeries(); //Pintamos series favoritas
+    setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
+  } else if (favSeriesId.includes(indexBtn)) {
+    const favSeriesId = favSeries.map((serie) => serie.id === indexBtn);
+
+    favSeries.splice(favSeriesId, 1);
+
+    paintSeries(series);
+    renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
   } else {
-    alert(
-      `No necesitas marcarla como favorita, ya está en tu lista 😉
-      Puedes borrarla en el apartado de favoritos`
-    );
+    console.log(event.target);
+    alert(`No necesitas marcarla como favorita, ya está en tu lista 😉
+      Puedes borrarla en el apartado de favoritos`);
   }
+
   addClickListeners();
 }
 
@@ -145,9 +154,11 @@ function renderFavSeries() {
       seriesListFav.setAttribute('class', 'serie-fav');
       seriesListFav.setAttribute('id', `${favSerie.id}`);
       seriesListFav.addEventListener('click', selectFavoriteSerie); //AQUÍ LLAMARÉ A LA FUNCIÓN DE RESET DE FAVS
+
       let btnDeleteFav = document.createElement('button');
       btnDeleteFav.appendChild(document.createTextNode('X'));
       btnDeleteFav.setAttribute('class', 'btn-delete');
+      btnDeleteFav.setAttribute('id', `${favSerie.id}`);
       seriesListFav.appendChild(btnDeleteFav);
 
       let nameSerieFav = document.createElement('h3');
@@ -169,6 +180,17 @@ function renderFavSeries() {
     }
   }
 }
+
+// BORRAR SERIE DE FAVORITOS
+
+function deleteFavoriteSerie(event) {}
+
+const listenDeleteBtn = () => {
+  const deleteBtns = document.querySelectorAll('.btn-delete');
+  for (let deleteBtn of deleteBtns) {
+    deleteBtn.addEventListener('click', deleteFavoriteSerie);
+  }
+};
 
 // RESET ALL
 const btnResetAll = document.querySelector('.btn-reset-all');

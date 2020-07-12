@@ -86,7 +86,7 @@ function addClickListeners() {
 
 // FUNCIÓN PARA GUARDAR TODAS LAS SERIES FAVORITAS
 function selectFavoriteSerie(event) {
-  const indexSerie = parseInt(event.currentTarget.id); //Agregamos los elementos al array, con un parseInt para que se incluyan como números y no como cadenas. Así luego podremos identificarlos para que cuando carguemos los resultados de una búsqueda,  incluyan el color que hemos predeterminado para los favoritos.
+  const indexSerie = parseInt(event.currentTarget.id);
   const indexBtn = parseInt(event.target.id);
   const favSeriesId = favSeries.map((serie) => serie.id);
 
@@ -98,9 +98,10 @@ function selectFavoriteSerie(event) {
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
   } else if (favSeriesId.includes(indexBtn)) {
-    const favSeriesId = favSeries.map((serie) => serie.id === indexBtn);
+    //CONDICIÓN QUE NOS BORRA LAS SERIES QUE YA NO QUEREMOS EN FAVORITOS
+    favSeries = favSeries.filter((serie) => serie.id !== indexBtn); // favseries es un array de objetos que contiene nuestras series marcadas como favoritas, con el filter hemos recorrido el array, comparamos los IDs con el del botón, filtramos un nuevo array sin dicho objeto y se actualizaría favSeries
 
-    favSeries.splice(favSeriesId, 1);
+    console.log(favSeries);
 
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
@@ -180,17 +181,6 @@ function renderFavSeries() {
     }
   }
 }
-
-// BORRAR SERIE DE FAVORITOS
-
-function deleteFavoriteSerie(event) {}
-
-const listenDeleteBtn = () => {
-  const deleteBtns = document.querySelectorAll('.btn-delete');
-  for (let deleteBtn of deleteBtns) {
-    deleteBtn.addEventListener('click', deleteFavoriteSerie);
-  }
-};
 
 // RESET ALL
 const btnResetAll = document.querySelector('.btn-reset-all');

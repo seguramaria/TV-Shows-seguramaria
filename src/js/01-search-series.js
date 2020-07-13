@@ -98,14 +98,14 @@ function selectFavoriteSerie(event) {
     favSeries.push(serie);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
-  } else if (favSeriesId.includes(btnId)) {
-    //CONDICIÓN QUE NOS BORRA LAS SERIES QUE YA NO QUEREMOS EN FAVORITOS
-    favSeries = favSeries.filter((serie) => serie.id !== btnId);
+  } else if (favSeriesId.includes(serieId)) {
+    favSeries = favSeries.filter((serie) => serie.id !== serieId);
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Actualizamos el localstorage
-  } else if (favSeriesId.includes(serieId)) {
-    favSeries = favSeries.filter((serie) => serie.id !== serieId);
+  } else if (favSeriesId.includes(btnId)) {
+    //CONDICIÓN QUE NOS BORRA LAS SERIES QUE YA NO QUEREMOS EN LA SECCIÓN DE FAVORITOS
+    favSeries = favSeries.filter((serie) => serie.id !== btnId);
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Actualizamos el localstorage

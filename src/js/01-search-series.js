@@ -49,7 +49,7 @@ function paintSeries(series) {
     if (favSeriesId.includes(serie.id)) {
       seriesElement.classList.add('fav'); //incluye la clase fav, para que aquellas series que estén en el array de favSeries aparezcan con background-color
     }
-    seriesElement.addEventListener('click', selectFavoriteSerie); //Escuchamos el evento en el click sobre el artículo de la serie, para convertirla en favorita.
+    seriesElement.addEventListener('click', selectFavoriteSerie); //Escuchamos el evento en seriesElement con un click para pintarla en favorita.
 
     let nameSerie = document.createElement('h3');
     nameSerie.appendChild(document.createTextNode(serie.name));
@@ -100,14 +100,10 @@ function selectFavoriteSerie(event) {
   } else if (favSeriesId.includes(indexBtn)) {
     //CONDICIÓN QUE NOS BORRA LAS SERIES QUE YA NO QUEREMOS EN FAVORITOS
     favSeries = favSeries.filter((serie) => serie.id !== indexBtn); // favseries es un array de objetos que contiene nuestras series marcadas como favoritas, con el filter hemos recorrido el array, comparamos los IDs con el del botón, filtramos un nuevo array sin dicho objeto y se actualizaría favSeries
-
-    console.log(favSeries);
-
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
   } else {
-    console.log(event.target);
     alert(`No necesitas marcarla como favorita, ya está en tu lista 😉
       Puedes borrarla en el apartado de favoritos`);
   }

@@ -104,9 +104,9 @@ function selectFavoriteSerie(event) {
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Actualizamos el localstorage
-  } else if (favSeriesId.includes(serieId)) {
-    event.currentTarget.classList.remove('fav');
-    favSeries = favSeries.filter((serie) => serie.id !== serieId);
+  } else {
+    alert(`No necesitas marcarla como favorita, ya está en tu lista 😉
+      Puedes borrarla en el apartado de favoritos`);
   }
 
   addClickListeners();

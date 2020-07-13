@@ -37,27 +37,6 @@
   }
 }
 
-//Cuando no hay ninguna serie en favoritos
-.no-series {
-  font-family: $font-main;
-  font-size: 1.5rem;
-  color: $grey;
-  text-align: center;
-  &-text {
-    margin: 20px 0;
-    font-size: 1.1rem;
-    color: $dark-pink;
-    text-align: center;
-  }
-  &-img-container {
-    width: 400px;
-    height: 400px;
-    margin-top: 30px;
-  }
-  &-img {
-    width: 100%;
-  }
-}
 .favorite__series-section {
   padding: 30px;
 }
@@ -70,7 +49,11 @@
 }
 
 // SECCIÓN DE BÚSQUEDA
-
+.series__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .series-search-title {
   font-size: 1.7rem;
   margin-bottom: 25px;
@@ -145,17 +128,11 @@
 .fa-search {
   font-size: 1rem;
 }
+
 //Párrafo inicial a los resultados
 .search-results-text {
   margin: 20px 0px;
   font-size: 1.3rem;
   color: black;
   font-weight: 400;
-}
-
-.series__list {
-  display: flex;
-
-  justify-content: center;
-  flex-wrap: wrap;
 }

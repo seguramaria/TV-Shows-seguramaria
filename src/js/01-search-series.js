@@ -86,15 +86,20 @@ function addClickListeners() {
 
 // FUNCIÓN PARA GUARDAR TODAS LAS SERIES FAVORITAS
 function selectFavoriteSerie(event) {
-  const indexSerie = parseInt(event.currentTarget.id);
+  const iDSerie = parseInt(event.currentTarget.id);
   const indexBtn = parseInt(event.target.id);
   const favSeriesId = favSeries.map((serie) => serie.id);
 
-  if (!favSeriesId.includes(indexSerie)) {
+  if (!favSeriesId.includes(iDSerie)) {
     event.currentTarget.classList.add('fav');
 
-    let serie = getSerie(indexSerie);
+    let serie = getSerie(iDSerie);
     favSeries.push(serie);
+    renderFavSeries(); //Pintamos series favoritas
+    setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
+  } else if (favSeriesId.includes(iDSerie)) {
+    favSeries = favSeries.filter((serie) => serie.id !== iDSerie);
+    paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
   } else if (favSeriesId.includes(indexBtn)) {
@@ -103,9 +108,6 @@ function selectFavoriteSerie(event) {
     paintSeries(series);
     renderFavSeries(); //Pintamos series favoritas
     setLocalStorage(favSeries); //Enviamos al localstorage el array con los ids de las series favoritas
-  } else {
-    alert(`No necesitas marcarla como favorita, ya está en tu lista 😉
-      Puedes borrarla en el apartado de favoritos`);
   }
 
   addClickListeners();
@@ -128,6 +130,8 @@ function readLocalStorage() {
 }
 
 // // como los favoritos los estoy guardando por id, necesito relacionar mi array de ids de favoritos con el objeto al que hace referencia en el array de objetos series. Para ello creo una función que recibe el id de favorito, recorre el array series y si el id que le paso coincide con alguno de los ids de mi array de series devuelvo el objeto para poder pintarlo
+
+// RECORRE EL ARRAY DE SERIES Y DEVUELVE LA SERIE QUE COINCIDE CON EL ID QUE PASAMOS DE PARÁMETRO
 function getSerie(serieId) {
   for (let serie of series) {
     if (serie.id === serieId) {
@@ -136,6 +140,20 @@ function getSerie(serieId) {
   }
 }
 
+// SI QUISIERA CREAR UN BOTÓN PARA CONOCER FAVORITOS
+
+let sectionGeneralFav = document.querySelector('.favorite__series-section');
+let btnArrayFav = document.createElement('button');
+btnArrayFav.appendChild(document.createTextNode('Conocer favoritos'));
+btnArrayFav.setAttribute('class', 'btn-array');
+sectionGeneralFav.appendChild(btnArrayFav);
+
+function knowFavorites() {
+  for (let favSerie of favSeries) {
+    console.log(favSerie.name);
+  }
+}
+btnArrayFav.addEventListener('click', knowFavorites);
 // FUNCIÓN PINTAR FAVORITOS
 // le paso como parámetro el array de favoritos, de partida vacío lo que contenga la sección
 

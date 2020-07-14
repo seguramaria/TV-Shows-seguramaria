@@ -36,7 +36,7 @@ function handlerClickSearch(event) {
 function paintSeries(series) {
   sectionSeries.innerHTML = '';
   const favSeriesId = favSeries.map((serie) => serie.id);
-
+  console.log(series.length);
   showSeriesResults(); //Llamamos a la función que muestra un texto cuando aparecen resultados nuevos.
 
   // serie es el item de nuestro array

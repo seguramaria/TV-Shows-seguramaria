@@ -10,7 +10,7 @@ let favSeries = readLocalStorage();
 function getsearchSeries() {
   let inputSearch = document.querySelector('.js-search');
   let search = inputSearch.value;
-  const URL = `http://api.tvmaze.com/search/shows?q=${search}`;
+  const URL = `https://api.tvmaze.com/search/shows?q=${search}`;
   series = [];
   fetch(URL)
     .then((response) => response.json())

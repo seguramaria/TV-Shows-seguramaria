@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/2.png" width="150"/>
 
 # Sherlock TV, buscador de series 🔍🧐
-
+### Desarrollo de una página web con JavaScript Vanilla.
 El proyecto consiste en desarrollar una aplicación web de búsqueda de series de TV, que nos permite
 des/marcar las series como favoritas y guardarlas en local storage.
 También tiene una parte de maquetación con HTML y Sass.

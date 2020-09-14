@@ -41,4 +41,4 @@ Pasos
    - Se puede añadir/quitar como favorito al hacer clic sobre una serie del lado de la derecha. Si realizamos una nueva búsqueda y sale una serie que ya es favorita, aparece ya resaltada en los resultados de búsqueda (con colores de fondo y texto intercambiados).
    - Al final de la lista de favoritos hay un botón para borrarlos todos los favoritos a la vez.
    
-   Enlace a GitHub Pages para ver el resultado: http://beta.adalab.es/modulo-2-evaluacion-final-seguramaria/
+   Enlace a GitHub Pages para ver el resultado: https://seguramaria.github.io/TV-Shows-seguramaria/

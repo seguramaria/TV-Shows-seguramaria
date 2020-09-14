@@ -19,9 +19,9 @@ Pasos
 
 Maquetada con un diseño responsive:
 
-<img src="https://raw.githubusercontent.com/seguramaria/sailormooncards/master/src/images/responsive/16.png" width="200"/>
-<img src="https://raw.githubusercontent.com/seguramaria/sailormooncards/master/src/images/responsive/17.png" width="200"/>
-<img src="https://raw.githubusercontent.com/seguramaria/sailormooncards/master/src/images/responsive/18.png" width="200"/>
+<img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/responsive/16.png" width="200"/>
+<img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/responsive/17.png" width="200"/>
+<img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/responsive/18.png" width="200"/>
 
 2. **Búsqueda**
 

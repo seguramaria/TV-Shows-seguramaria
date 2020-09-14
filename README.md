@@ -1,7 +1,7 @@
+<img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/2.png" width="150"/>
+
 # Sherlock TV, buscador de series 🔍🧐
-
-<img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/2.png" width="350"/>
-
+### Desarrollo de una página web con JavaScript Vanilla.
 El proyecto consiste en desarrollar una aplicación web de búsqueda de series de TV, que nos permite
 des/marcar las series como favoritas y guardarlas en local storage.
 También tiene una parte de maquetación con HTML y Sass.
@@ -40,3 +40,5 @@ Pasos
    - Al hacer clic sobre el icono de una 'x' al lado de cada favorito, se borra el favorito clicado de la lista y del localStorage.
    - Se puede añadir/quitar como favorito al hacer clic sobre una serie del lado de la derecha. Si realizamos una nueva búsqueda y sale una serie que ya es favorita, aparece ya resaltada en los resultados de búsqueda (con colores de fondo y texto intercambiados).
    - Al final de la lista de favoritos hay un botón para borrarlos todos los favoritos a la vez.
+   
+   Enlace a GitHub Pages para ver el resultado: http://beta.adalab.es/modulo-2-evaluacion-final-seguramaria/

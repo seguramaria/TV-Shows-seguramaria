@@ -1,6 +1,6 @@
-# Sherlock TV, buscador de series 🔍🧐
-
 <img src="https://raw.githubusercontent.com/seguramaria/TV-shows-seguramaria/master/src/images/2.png" width="150"/>
+
+# Sherlock TV, buscador de series 🔍🧐
 
 El proyecto consiste en desarrollar una aplicación web de búsqueda de series de TV, que nos permite
 des/marcar las series como favoritas y guardarlas en local storage.
